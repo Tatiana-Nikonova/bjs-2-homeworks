@@ -3,7 +3,7 @@
 function solveEquation(a, b, c) {
 	let arr;
 	// код для задачи №1 писать здесь
-	let D = b ** 2 - 4 * a * c;;
+	let D = b ** 2 - 4 * a * c;
 	let x1;
 	let x2;
 
