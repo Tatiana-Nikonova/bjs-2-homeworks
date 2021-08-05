@@ -30,9 +30,6 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
 
 	// код для задачи №2 писать здесь
 
-	percent = Number(percent);
-	contribution = Number(contribution);
-	amount = Number(amount);
 
 	if (isNaN(Number(percent)) === true) {
 		return (`Параметр "Процентная ставка" содержит неправильное значение "${percent}"`)
