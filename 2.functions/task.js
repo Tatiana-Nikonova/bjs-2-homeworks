@@ -39,18 +39,21 @@ function worker(arr) {
 	return sum;
 };
 
-
-
 function makeWork(arrOfArr, func) {
 	let max = -Infinity;
+	let min = Infinity;
 
 	// Ваш код
 
 	for (let j = 0; j < arrOfArr.length; j++) {
 
-		if (max < worker(arrOfArr[j])) {
-			max = worker(arrOfArr[j]);
+		if (max < func(arrOfArr[j])) {
+			max = func(arrOfArr[j]);
 		};
+		if (min > func(arrOfArr[j])) {
+			min = func(arrOfArr[j]);
+		};
+
 	};
 
 	return max;
@@ -58,8 +61,20 @@ function makeWork(arrOfArr, func) {
 
 
 
-
 // Задание 3
 function worker2(arr) {
+
 	// Ваш код
-}
+
+	if (max < worker(arrOfArr[j])) {
+		max = worker(arrOfArr[j]);
+	};
+	if (min > worker(arrOfArr[j])) {
+		min = worker(arrOfArr[j]);
+	};
+
+
+
+	return max - min;
+
+};
