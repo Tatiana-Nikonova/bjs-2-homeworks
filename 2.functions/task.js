@@ -65,15 +65,18 @@ function makeWork(arrOfArr, func) {
 function worker2(arr) {
 
 	// Ваш код
+	let max = -Infinity;
+	let min = Infinity;
 
-	if (max < worker(arrOfArr[j])) {
-		max = worker(arrOfArr[j]);
+	for (let i = 0; i < arr.length; i++) {
+
+		if (max < arr[i]) {
+			max = arr[i];
+		};
+		if (min > arr[i]) {
+			min = arr[i];
+		};
 	};
-	if (min > worker(arrOfArr[j])) {
-		min = worker(arrOfArr[j]);
-	};
-
-
 
 	return max - min;
 
