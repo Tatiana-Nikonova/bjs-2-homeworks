@@ -1,11 +1,14 @@
 function compareArrays(arr1, arr2) {
 
 	// Ваш код
-	let result = arr1.every((item, idx) => {
-		return (arr1.length === arr2.length && arr1[idx] === arr2[idx]);
-	});
+	if (arr1.length === arr2.length) {
+		let result = arr1.every((item, idx) => arr1[idx] === arr2[idx]);
 
-	return result;
+		return result;
+	} else {
+		return false;
+	};
+
 };
 
 
