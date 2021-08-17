@@ -29,18 +29,23 @@ Student.prototype.addMark = function (...mark) {
 };
 
 
-Student.prototype.getAverage = function (arr) {
-	//ваш код
-	let i = 0;
-	let sum = arr.forEach((item) => i += item);
+Student.prototype.getAverage = this.marks.reduce((acc = 0, item, idx, arr) => {
+	acc += item;
+	console.log(acc);
 
-	let avg = sum / arr.length;
-	return avg = Number(avg.toFixed(2));
-};
+	if (idx === arr.length - 1) {
+		let avg = acc / arr.length;
+		return Number(avg.toFixed(2));
+	} else {
+		return acc = avg;
+	};
+});
+
 
 Student.prototype.excludeStudent = function (reason) {
 	//ваш код
-	//getAverage(arr);
+
+	let avg = getAverage();
 
 	if (avg < 3) {
 		delete this.subject;
