@@ -13,7 +13,7 @@ Student.prototype.setSubject = function (subjectName) {
 // ваш код для остальных методов
 
 
-Student.prototype.addMark = function (...mark) {
+Student.prototype.addMark = function (mark) {
 	//ваш код
 
 	if (this.marks === undefined) {
@@ -22,37 +22,37 @@ Student.prototype.addMark = function (...mark) {
 
 	} else {
 		// добавить вторую и последующие оценки в массив
-		this.marks.push(...mark);
+		this.marks.push(mark);
 	};
-	let arr = this.marks;
-	return arr;
+};
+
+Student.prototype.addMark = function (...mark) {
+	//ваш код
+
+	if (this.marks === undefined) {
+		// добавить первую оценку 
+		this.marks = [];
+		this.marks.push(mark);
+
+	} else {
+		// добавить вторую и последующие оценки в массив
+		this.marks.push(mark);
+	};
 };
 
 
-Student.prototype.getAverage = this.marks.reduce((acc = 0, item, idx, arr) => {
-	acc += item;
-	console.log(acc);
-
-	if (idx === arr.length - 1) {
-		let avg = acc / arr.length;
-		return Number(avg.toFixed(2));
-	} else {
-		return acc = avg;
-	};
-});
+Student.prototype.getAverage = function () {
+	return this.marks.reduce((acc, item) => acc += item) / this.marks.length;
+};
 
 
-Student.prototype.excludeStudent = function (reason) {
+Student.prototype.exclude = function (reason) {
 	//ваш код
 
-	let avg = getAverage();
+	delete this.subject;
+	delete this.marks;
 
-	if (avg < 3) {
-		delete this.subject;
-		delete this.marks;
-
-		this.excluded = reason;
-	};
+	this.excluded = reason;
 };
 
 
