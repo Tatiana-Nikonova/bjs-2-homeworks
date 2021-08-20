@@ -18,7 +18,7 @@ Student.prototype.addMark = function (mark) {
 
 	if (this.marks === undefined) {
 		// добавить первую оценку 
-		this.marks = mark;
+		this.marks = [mark];
 
 	} else {
 		// добавить вторую и последующие оценки в массив
@@ -26,17 +26,17 @@ Student.prototype.addMark = function (mark) {
 	};
 };
 
-Student.prototype.addMark = function (...mark) {
+Student.prototype.addMarks = function (...mark) {
 	//ваш код
 
 	if (this.marks === undefined) {
 		// добавить первую оценку 
 		this.marks = [];
-		this.marks.push(mark);
+		this.marks.push(...mark);
 
 	} else {
 		// добавить вторую и последующие оценки в массив
-		this.marks.push(mark);
+		this.marks.push(...mark);
 	};
 };
 
