@@ -96,7 +96,7 @@ class Library {
 
 	giveBookByName = function (bookName) {
 
-		let index = this.books.findIndex(item => item[type] === bookName);
+		let index = this.books.findIndex(item => item[name] === bookName);
 
 		if (index > -1) {
 			return this.books.splice(index, 1);
@@ -123,14 +123,12 @@ class Student {
 			if (subject === "algebra" || subject === "geometry") {
 
 				function addedMark(mark, subject) {
-					this.marks.subject = [mark];
-					// if (this.marks.subject === subject {
-					// 	this.marks.subject = [mark];
-					// } else {
-					// 	this.marks.subject.push(mark);
-					// };
+					this.marks[subject] = [mark];
 
+					this.marks.subject.push(mark);
 				};
+
+
 			} else {
 				console.log("Несуществующий предмет");
 			};
@@ -139,19 +137,16 @@ class Student {
 			console.log("Ошибка, оценка должна быть числом от 1 до 5");
 		};
 
-
-
-
-		// getAverageBySubject = function (subject) {
-		// 	return this.marks.subject.reduce((acc, item) => acc += item) / this.marks.subject.length;
-		// };
-
-
-		this.exclude = function (reason) {
-			this.exclude = reason;
-		};
 	};
 
 
+	getAverageBySubject = function (subject) {
+		return this.marks.subject.reduce((acc, item) => acc += item) / this.marks.subject.length;
+	};
+
+
+	exclude = function (reason) {
+		this.exclude = reason;
+	};
 };
 
