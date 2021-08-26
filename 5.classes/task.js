@@ -153,9 +153,9 @@ class Student {
 
 	getAverage() {
 		for (let i; i < this.subjects.length; i++) {
-			let sum = 0;
-			sum += this.subjects[i].reduce((acc, item) => acc += item);
-			return sum / this.subjects.length;
+			let arrMarks = this.subjects[i].concat(this.subjects[i++]);
+			let sumAllMarks = arrMarks.reduce((acc, item) => acc += item);
+			return sumAllMarks / this.arrMarks.length;
 		};
 
 	};
