@@ -99,7 +99,7 @@ class Library {
 		let index = this.books.findIndex(item => item.name === bookName);
 
 		if (index > -1) {
-			return this.books.splice(index, 1);
+			return this.books.splice(index, 1)[0];
 		} else {
 			return null;
 		};
@@ -115,29 +115,49 @@ class Student {
 	// ваш код
 	constructor(name) {
 		this.name = name;
-		this.subjects = [];
+		this.subjects = {
+			algebra: [],
+			geometry: []
+		};
 	};
 
-	// addMark = function (mark, subject) {
-	// 	if (mark < 6 && mark > 0) {
-	// 		let subj = this.subjects.find((item) => item.subject === subject
-	// 		if (!subj) {
+	addMark = function (mark, subject) {
 
-	// 			let item = { subject, mark: [mark] };
-	// 			this.subjects.push(item);
-	// 		} else {
-	// 			subj.marks.push(mark);
-	// 		};
+		if (mark < 6 && mark > 0) {
 
-	// 	} else {
-	// 		console.log("Ошибка, оценка должна быть числом от 1 до 5");
-	// 	};
 
-	// };
+			if (this.subjects[subject] === undefined) {
+
+				this.subjects[subject] = mark;
+
+			} else {
+				this.subjects[subject].push(mark);
+			};
+
+		} else {
+			console.log("Ошибка, оценка должна быть числом от 1 до 5");
+		};
+
+
+	};
 
 
 	getAverageBySubject = function (subject) {
-		return this.marks.subject.reduce((acc, item) => acc += item) / this.marks.subject.length;
+		if (subject === 'algebra' || subject === 'geometry') {
+
+			return this.subjects[subject].reduce((acc, item) => acc += item) / this.subjects[subject].length;
+		} else {
+			console.log("Несуществующий предмет");
+		};
+	};
+
+	getAverage() {
+		for (let i; i < this.subjects.length; i++) {
+			let sum = 0;
+			sum += this.subjects[i].reduce((acc, item) => acc += item);
+			return sum / this.subjects.length;
+		};
+
 	};
 
 
