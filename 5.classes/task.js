@@ -96,7 +96,7 @@ class Library {
 
 	giveBookByName = function (bookName) {
 
-		let index = this.books.findIndex(item => item[name] === bookName);
+		let index = this.books.findIndex(item => item.name === bookName);
 
 		if (index > -1) {
 			return this.books.splice(index, 1);
@@ -115,28 +115,25 @@ class Student {
 	// ваш код
 	constructor(name) {
 		this.name = name;
+		this.subjects = [];
 	};
 
-	addMark = function (mark, subject) {
-		if (mark < 6) {
-			if (subject === "algebra" || subject === "geometry") {
+	// addMark = function (mark, subject) {
+	// 	if (mark < 6 && mark > 0) {
+	// 		let subj = this.subjects.find((item) => item.subject === subject
+	// 		if (!subj) {
 
-				function addedMark(mark, subject) {
-					this.marks[subject] = [mark];
+	// 			let item = { subject, mark: [mark] };
+	// 			this.subjects.push(item);
+	// 		} else {
+	// 			subj.marks.push(mark);
+	// 		};
 
-					this.marks.subject.push(mark);
-				};
+	// 	} else {
+	// 		console.log("Ошибка, оценка должна быть числом от 1 до 5");
+	// 	};
 
-
-			} else {
-				console.log("Несуществующий предмет");
-			};
-
-		} else {
-			console.log("Ошибка, оценка должна быть числом от 1 до 5");
-		};
-
-	};
+	// };
 
 
 	getAverageBySubject = function (subject) {
@@ -147,5 +144,7 @@ class Student {
 	exclude = function (reason) {
 		this.exclude = reason;
 	};
+
+
 };
 
