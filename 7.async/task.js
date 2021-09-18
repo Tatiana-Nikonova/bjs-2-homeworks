@@ -21,10 +21,8 @@ class AlarmClock {
 		let arrLength1 = this.alarmCollection.length;
 		this.alarmCollection = this.alarmCollection.filter(item => item.id !== id);
 		let arrLength2 = this.alarmCollection.length;
+		return arrLength1 === arrLength2;
 
-		if (arrLength1 === arrLength2) true;
-
-		return this.alarmCollection;
 	};
 
 	// возвращает текущее время в строковом формате HH:MM

@@ -5,7 +5,7 @@ phoneAlarm.addClock('09:00', () => console.log('Пора вставать'), 1);
 phoneAlarm.addClock('09:01', () => { console.log('Давай, вставай уже!'); phoneAlarm.removeClock(2) }, 2);
 phoneAlarm.addClock('09:01', () => console.log('Иди умываться!'));
 
-const clock = new AlarmClock();
+var clock = new AlarmClock();
 
 clock.addClock('00:00', () => { }, 1);
 clock.addClock('00:00', () => { }, 2);
@@ -27,5 +27,7 @@ phoneAlarm.addClock('09:05', () => console.log('Вставай, а то прос
 
 
 phoneAlarm.start();
-removeClock(2);
+
+var clock = new AlarmClock();
+clock.removeClock(2);
 
