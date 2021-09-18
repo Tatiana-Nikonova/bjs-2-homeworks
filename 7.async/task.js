@@ -1,3 +1,4 @@
+
 class AlarmClock {
 	constructor() {
 		this.alarmCollection = [];
@@ -8,7 +9,7 @@ class AlarmClock {
 	addClock(time, func, id) {
 		if (!id) throw new Error('Параметр id не передан в метод addClock()');
 
-		if (this.alarmCollection.some(item => item.id)) {
+		if (this.alarmCollection.some(item => item.id === id)) {
 			console.error(`Звонок с данным id ${id} уже зарегестрирован!`);
 			return;
 		};
@@ -17,14 +18,7 @@ class AlarmClock {
 
 	//удаляет определённый звонок по id
 	removeClock(id) {
-		this.alarmCollection.filter((item) => {
-			if (item.id === id) {
-				this.alarmCollection.splice(0, 1);
-				return true;
-			} else {
-				return false;
-			};
-		});
+		alarmCollection = this.alarmCollection.filter(item => item.id !== id);
 	};
 
 	// возвращает текущее время в строковом формате HH:MM
