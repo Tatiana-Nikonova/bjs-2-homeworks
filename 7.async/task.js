@@ -18,7 +18,13 @@ class AlarmClock {
 
 	//удаляет определённый звонок по id
 	removeClock(id) {
-		alarmCollection = this.alarmCollection.filter(item => item.id !== id);
+		let arrLength1 = this.alarmCollection.length;
+		this.alarmCollection = this.alarmCollection.filter(item => item.id !== id);
+		let arrLength2 = this.alarmCollection.length;
+
+		if (arrLength1 === arrLength2) true;
+
+		return this.alarmCollection;
 	};
 
 	// возвращает текущее время в строковом формате HH:MM
