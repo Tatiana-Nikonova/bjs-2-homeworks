@@ -73,6 +73,11 @@ function debounceDecorator2(func, ms) {
 			wrapper.count++;
 			return;
 		};
+
+		func.apply(this, args);
+		wrapper.count++;
+		isThrottled = true;
+
 		console.log(wrapper.count);
 	};
 	return wrapper;
