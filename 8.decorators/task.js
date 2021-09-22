@@ -1,12 +1,12 @@
 function cachingDecoratorNew(func) {
 	// Ваш код
-	let cache = [];
+	let cache = {};
 
 	function wrapper(...args) {
 
-		let hash = args.join(',');
+		cache.hash = args.join(',');
 
-		const idx = cache.findIndex((item) => item in cache);
+		const idx = cache.findIndex((item) => item in cache.hash);
 
 		if (idx !== -1) {
 			console.log("Из кэша: " + cache[hash]);
@@ -20,7 +20,6 @@ function cachingDecoratorNew(func) {
 		};
 		console.log("Вычисляем: " + result);
 		return "Вычисляем: " + result;
-
 	};
 
 	return wrapper;
@@ -65,12 +64,13 @@ function debounceDecorator2(func, ms) {
 
 		timeout = setTimeout(() => {
 			isThrottled = false;
-			func.apply(this, args)
+			func.apply(this, args);
 			wrapper.count++;
 		}, ms);
+		func.apply(this, args);
+		wrapper.count++;
 
 		if (isThrottled) {
-			wrapper.count++;
 			return;
 		};
 
