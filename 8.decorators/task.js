@@ -35,7 +35,7 @@ function debounceDecoratorNew(func, ms) {
 	let isThrottled = false;
 	let timeout;
 
-	return function wrapper(...args) {
+	function wrapper(...args) {
 		clearTimeout(timeout);
 
 		timeout = setTimeout(() => {
@@ -48,6 +48,7 @@ function debounceDecoratorNew(func, ms) {
 		func.apply(this, args);
 		isThrottled = true;
 	};
+	return wrapper;
 };
 
 
@@ -58,7 +59,7 @@ function debounceDecorator2(func, ms) {
 	let timeout;
 	wrapper.count = 0;
 
-	return function wrapper(...args) {
+	function wrapper(...args) {
 
 		clearTimeout(timeout);
 
@@ -74,6 +75,6 @@ function debounceDecorator2(func, ms) {
 		};
 		console.log(wrapper.count);
 	};
-
+	return wrapper;
 };
 
